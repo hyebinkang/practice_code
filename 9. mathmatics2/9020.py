@@ -3,7 +3,7 @@ def isPrime(num):
     if num == 1:            #1은 소수가 아님
         return False
     else:
-        for i in range(2, int(num**0.5)+1): #2부터 num의 제곱근 +1d의 범위까지
+        for i in range(2, int(num**0.5)+1): #2부터 num의 제곱근 +1의 범위까지
             if num%i == 0:
                 return False        #소수가 아닌 것들
         return True           #소수인 것들에 True반환
