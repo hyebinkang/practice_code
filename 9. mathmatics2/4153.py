@@ -5,7 +5,7 @@ while True:
         False
         break
     else:
-        if((num[0]**2 + num[1]**2)**0.5 == (num[2]**2)**0.5):       #x의 제곱 + y의 제곱 은 z제곱의 루트값과 같다
+        if((num[0]**2 + num[1]**2)== (num[2]**2)):       #x의 제곱 + y의 제곱 은 z제곱의 루트값과 같다
             print("right")
         else:
             print("wrong")
