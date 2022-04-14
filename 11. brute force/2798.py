@@ -16,4 +16,4 @@ for i in range(len(card)):                  #첫번째 카드 고르기
                 if(card[i]+card[j]+card[k] <= M):       #card의 합이 M이하 일 때 리스트에 저장
                     avg_list.append(card[i]+card[j]+card[k])
 
-print(max(avg_list))#최댓값 출력
+print(max(avg_list))    #최댓값 출력
