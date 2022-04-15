@@ -17,3 +17,16 @@ for i in range(len(card)):                  #첫번째 카드 고르기
                     avg_list.append(card[i]+card[j]+card[k])
 
 print(max(avg_list))    #최댓값 출력
+
+
+# #-----조합------
+# from itertools import combinations
+#
+# n, s = map(int, input().split())
+# cards = list(map(int, input().split()))
+# max_sum = 0
+#
+# for c in combinations(cards, 3):
+#     if sum(c) <= s and sum(c) > max_sum:
+#         max_sum = sum(c)
+# print(max_sum)
