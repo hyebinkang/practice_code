@@ -1,19 +1,21 @@
 n = int(input())
-star_list = []
-def star(x,y):
-    while(x!=0):
-        if(x%3 == 1 and y%3==1):
-            star_list.append('')
-        x = x//3
-        y = y//3
-    star_list.append('*')
 
-for x in range(n):
-    for y in range(n):
-        star(x,y)
+def star(l):
+    if l==3:
+        return ['***', '* *', '***']
 
-for j in star_list:
-    if star_list.index(j) != n//3-1:
-        print(j, end='\t')
+    arr = star(l//3)
+    stars = []
 
+    for i in arr:
+        stars.append(i*3)
 
+    for i in arr:
+        stars.append(i+' '*(l//3)+i)
+
+    for i in arr:
+        stars.append(i*3)
+
+    return stars
+
+print('\n'.join(star(n)))
