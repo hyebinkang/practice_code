@@ -1,7 +1,7 @@
 t= int(input())
 
 for _ in range(t):
-    line = input()  2번 반복되는 문자들은 삭제하고 남은 문자만 출력하기
+    line = input()
     letter = []                     #각각 문자 넣는 리스트
     for i in line:
         if not letter:              #1글자도 없다면 넣고
