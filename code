@@ -1,0 +1,195 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyP/szS7q7zAW2HEAXZ6r0v1",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/hyebinkang/practice_code/blob/main/code\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 16,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "xe2sDC4LiMIA",
+        "outputId": "eedb22e2-dd3f-4444-c123-19f09132a230"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "1\n",
+            "xyz\n",
+            "#1 0\n"
+          ]
+        }
+      ],
+      "source": [
+        "#SWEA 15230. 알파벳 공부\n",
+        "t = int(input())\n",
+        "alphabet = 'abcdefghijklmnopqrstuvwxyz'               #알파벳 문자 순서대로\n",
+        "\n",
+        "for _ in range(t):\n",
+        "  count = 0\n",
+        "  word = [0 for i in range(26)]                       #리스트에 모두 0으로 채워줌\n",
+        "\n",
+        "  s = input()\n",
+        "  for i in range(len(s)):                             #s의 길이만큼 0을 s의 문자로 채움\n",
+        "    word[i] = s[i]\n",
+        "\n",
+        "  \n",
+        "  for i in range(26):\n",
+        "    if alphabet[i] == word[i]:                       #i번째 오는 알파벳이 같으면 +1\n",
+        "      count +=1\n",
+        "    else:\n",
+        "      break                                         #같지 않으면 끝내기\n",
+        "\n",
+        "  print(\"#{0}\".format(_+1), count)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#SWEA 10570.제곱 팰린드롬 수\n",
+        "t= int(input())\n",
+        "\n",
+        "for _ in range(t):\n",
+        "  palindrome = 0\n",
+        "  a, b= map(int, input().split())\n",
+        "\n",
+        "  for i in range(a, b+1):\n",
+        "    c = i**(1/2)                          #제곱수\n",
+        "    if c == int(c):                       #제곱수가 int이면\n",
+        "      i = str(i)                          \n",
+        "      c= str(int(c))                      #i를 문자로 변환, c를 문자로 변환\n",
+        "\n",
+        "      if i == i[::-1] and c == c[::-1]:   #i와 i의 뒷자리, c와 c의 뒷자리 부터 비교했을 때 같다면 +1\n",
+        "        palindrome += 1\n",
+        "\n",
+        "  print(\"#{0}\".format(_+1), palindrome)\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "CJoU1d3JkkiF",
+        "outputId": "173f492f-f18a-4ff4-ea2a-d21eb9148545"
+      },
+      "execution_count": 19,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "1\n",
+            "100 1000\n",
+            "#1 2\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#백준 11866\n",
+        "from collections import deque\n",
+        "\n",
+        "n, k = map(int, input().split())    \n",
+        "queue = deque()                             #deque선언\n",
+        "circle=[]\n",
+        "\n",
+        "for i in range(1, n+1):\n",
+        "  queue.append(i)                           #숫자 입력\n",
+        "\n",
+        "while queue:\n",
+        "  for i in range(k-1):\n",
+        "    queue.append(queue.popleft())           #가장 왼쪽에 있는 원소를 가장 뒤로 보냄 \n",
+        "  circle.append(queue.popleft())            #k에 해당될 때 마다 circle에 넣기\n",
+        "\n",
+        "print('<', end='')\n",
+        "print(', '.join(map(str, circle)), end='')  #join을 사용하여 ,로 구분\n",
+        "print('>', end='')"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "l5QutFYr7FLB",
+        "outputId": "a208fcbd-16e8-44a2-af53-6b19fa106c55"
+      },
+      "execution_count": 10,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "7 3\n",
+            "<3, 6, 2, 7, 5, 1, 4>"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#SWEA 11478\n",
+        "t = int(input())\n",
+        "\n",
+        "for i in range(t):\n",
+        "  n, d = map(int, input().split())\n",
+        "  \n",
+        "  if n%(d*2+1) ==0:\n",
+        "    print(\"#{0}\".format(i+1), n//(d*2+1))\n",
+        "  else:\n",
+        "    print(\"#{0}\".format(i+1), n//(d*2+1)+1)\n",
+        "  "
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "MWwf_mPOfS2Q",
+        "outputId": "d9777c39-6c70-4e0b-8518-c7df589030c7"
+      },
+      "execution_count": 17,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "3\n",
+            "5 1\n",
+            "#1 2\n",
+            "5 2\n",
+            "#2 1\n",
+            "100 3\n",
+            "#3 15\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
